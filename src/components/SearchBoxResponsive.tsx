@@ -1,0 +1,31 @@
+import React from "react";
+
+const SearchBoxResponsive = ({ setQuery }: any) => {
+  return (
+    <div className="flex form-control md:hidden md:items-center border  py-1">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        strokeWidth={2}
+        stroke="currentColor"
+        className="size-5 text-sky-400 mx-2"
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"
+        />
+      </svg>
+
+      <input
+        onChange={(e) => setQuery(e.target.value)}
+        type="text"
+        placeholder="Search "
+        className=" ps-2 w-24 md:w-44 focus:outline-none"
+      />
+    </div>
+  );
+};
+
+export default SearchBoxResponsive;

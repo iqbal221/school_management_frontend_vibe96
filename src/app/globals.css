@@ -1,0 +1,140 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+body {
+  overflow: hidden; /* Disable scrolling */
+}
+
+/* @media print {
+  @page {
+    size: A4 landscape;
+    margin: 12mm;
+  }
+
+  body {
+    background: white !important;
+    color: black !important;
+  }
+
+  body * {
+    visibility: hidden;
+  }
+
+  .print-report,
+  .print-report * {
+    visibility: visible;
+  }
+
+  .print-report {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    padding: 0 !important;
+    background: white !important;
+    color: black !important;
+  }
+
+   /* .print:hidden {
+    display: none !important;
+  } */
+
+  /* .print-report table {
+    width: 100% !important;
+    min-width: 0 !important;
+    border-collapse: collapse;
+  }
+
+  .print-report th,
+  .print-report td {
+    border: 1px solid #d1d5db !important;
+    padding: 8px !important;
+    color: black !important;
+    font-size: 10px !important;
+  }
+
+  .print-report thead {
+    display: table-header-group;
+  }
+
+  .print-report tr {
+    break-inside: avoid;
+  }
+
+  .print-report .rounded-lg {
+    border-radius: 0 !important;
+  } */
+
+
+/* @media print {
+  @page {
+    size: A4 portrait;
+    margin: 15mm;
+  }
+
+  html,
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .student-print-content {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow: visible !important;
+    border: 1px solid #cbd5e1 !important;
+    background: #ffffff !important;
+  }
+
+  .student-print-content table {
+    display: table !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    border-collapse: collapse !important;
+  }
+
+  .student-print-content thead {
+    display: table-header-group !important;
+  }
+
+  .student-print-content tbody {
+    display: table-row-group !important;
+  }
+
+  .student-print-content tfoot {
+    display: table-footer-group !important;
+  }
+
+  .student-print-content tr {
+    break-inside: avoid !important;
+  }
+
+  .student-print-content th,
+  .student-print-content td {
+    padding: 9px !important;
+    border-bottom: 1px solid #e2e8f0 !important;
+    color: #1e293b !important;
+    font-size: 11px !important;
+  }
+
+  .student-print-content th {
+    background: #f1f5f9 !important;
+  }
+
+  .student-print-content * {
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+}  */
