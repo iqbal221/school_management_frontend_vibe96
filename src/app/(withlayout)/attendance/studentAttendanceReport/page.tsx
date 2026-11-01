@@ -353,7 +353,7 @@ export default function IndividualStudentAttendanceReportPage() {
             Individual Student Report
           </h1>
           <p className="mt-1 text-sm text-gray-500">
-            Individual student's attendance history.
+            Individual student&apos;s attendance history.
           </p>
         </div>
       </div>

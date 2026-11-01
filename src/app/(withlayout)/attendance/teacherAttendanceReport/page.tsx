@@ -401,7 +401,7 @@ export default function IndividualTeacherAttendanceReportPage() {
           </h1>
 
           <p className="mt-1 text-sm text-gray-500">
-            Individual teacher's attendance history.
+            Individual teacher&apos;s attendance history.
           </p>
         </div>
       </div>
