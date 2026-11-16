@@ -13,7 +13,7 @@ const benefits = [
     icon: Building2,
     title: "Centralized Management",
     description:
-      "Manage your school's daily activities from one organized platform.",
+      "Manage your school&apos;s daily activities from one organized platform.",
   },
   {
     icon: Clock,
@@ -63,7 +63,7 @@ export default function WhyChooseSchoolERP() {
           </h2>
 
           <p className="mt-4 text-base leading-7 text-slate-600">
-            Manage your school's important activities with simple, <br></br>
+            Manage your school&apos;s important activities with simple, <br></br>
             organized, and convenient management tools.
           </p>
         </div>

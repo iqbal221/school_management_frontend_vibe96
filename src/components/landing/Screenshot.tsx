@@ -56,7 +56,7 @@ export default function ScreenshotsSection() {
 
           <p className="mt-4 text-base leading-7 text-slate-600">
             Take a closer look at the tools that help organize
-            your school's daily operations.
+            your school&apos;s daily operations.
           </p>
         </div>
 

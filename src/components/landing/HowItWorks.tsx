@@ -58,7 +58,7 @@ export default function HowItWorks() {
           </h2>
 
           <p className="mt-5 text-lg leading-8 text-slate-600">
-            Get started with SchoolERP and organize your school's
+            Get started with SchoolERP and organize your school&apos;s
             administrative and academic activities through a simple workflow.
           </p>
         </div>
