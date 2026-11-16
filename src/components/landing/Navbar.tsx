@@ -130,7 +130,7 @@ export default function Navbar() {
             </Link>
 
             <Link
-              href="/login"
+              href="https://school-erp-school-management-applic.vercel.app/login"
               onClick={closeMenu}
               className="flex items-center justify-center gap-2 rounded-xl bg-blue-600 px-4 py-3.5 text-sm font-bold text-white"
             >
