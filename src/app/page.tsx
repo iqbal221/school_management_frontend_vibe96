@@ -1,3 +1,4 @@
+"use client"
 
 import Navbar from "@/components/landing/Navbar";
 import HeroSection from "@/components/landing/HeroSection";
@@ -11,13 +12,10 @@ import Footer from "@/components/landing/Footer";
 import AboutSection from "@/components/landing/About";
 
 const HomePage = () => {
-  // redirect("/dashboard");
   return (
-
-    <main className="min-h-screen bg-white">
+    <main className="bg-white">
       <Navbar />
       <HeroSection />
-      {/* <DashboardPreview/> */}
       <FeaturesSection />
       <ScreenshotsSection />
       <AboutSection />

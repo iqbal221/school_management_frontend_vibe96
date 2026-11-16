@@ -2,7 +2,7 @@ import LoginPage from "@/components/Login/Login";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "BAB | Login ",
+  title: "BSKS | Login ",
 };
 
 const Login = () => {
