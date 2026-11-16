@@ -163,11 +163,11 @@ const DashboardPage = () => {
   // =========================
     const today = useMemo(() => getToday(), []);
     const firstDayOfMonth = useMemo(() => getFirstDayOfMonth(), []);
-  
+
     // Default: current month
     const [startDate, setStartDate] = useState(firstDayOfMonth);
     const [endDate, setEndDate] = useState(today);
-  
+
     const validRange =
       Boolean(startDate) &&
       Boolean(endDate) &&
@@ -190,28 +190,28 @@ const DashboardPage = () => {
         skip: !validRange,
       }
     );
-  
+
     // =======================================================
     // RESPONSE DATA
     // =======================================================
-  
+
     const dashboard: DashboardData | undefined = useMemo(() => {
       if (!response || typeof response !== "object") {
         return undefined;
       }
-  
+
       const result = response as {
         data?: DashboardData;
         result?: DashboardData;
       } & DashboardData;
-  
+
       if (result.data) return result.data;
       if (result.result) return result.result;
-  
+
       return result;
     }, [response]);
 
-  
+
   let totalObtainedMarks = 0;
   let totalPossibleMarks = 0;
 
@@ -380,34 +380,22 @@ const studentMonthlyAttendance = calculateAttendance(
   }
 
   return (
-    <div className="min-h-screen bg-slate-50 p-3 dark:bg-slate-950 md:p-5 lg:p-6">
+    <div className="min-h-screen bg-slate-50 p-3 dark:bg-slate-950 md:p-5 lg:p-5">
       <div className="mx-auto max-w-7xl">
 
         {/* HEADER */}
 
-        <div className="mb-8 flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+        <div className="mb-4 flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
           <div>
-            <p className="mb-1 text-sm font-medium text-blue-600 dark:text-blue-400">
-              School Management System
-            </p>
-
             <h1 className="text-2xl font-bold text-slate-900 dark:text-white md:text-3xl">
               Dashboard
             </h1>
           </div>
-
-          <Link
-            href="/student/addNewStudent"
-            className="sm:flex hidden items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-blue-600 to-cyan-500 px-4 py-3 text-sm font-semibold text-white shadow-lg transition hover:scale-[1.02]"
-          >
-            <span className="text-lg">+</span>
-            Add Student
-          </Link>
         </div>
 
         {/* STAT CARDS */}
 
-        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-3">
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-3">
           {stats.map((stat) => (
             <Link
               key={stat.title}
@@ -445,10 +433,6 @@ const studentMonthlyAttendance = calculateAttendance(
                   <h2 className="mt-1 text-3xl font-bold text-slate-900 dark:text-white">
                     {stat.value}
                   </h2>
-
-                  <p className="mt-1 text-xs text-slate-400 dark:text-slate-500">
-                    {stat.description}
-                  </p>
                 </div>
 
                 {stat.progress !== undefined && (
@@ -480,18 +464,7 @@ const studentMonthlyAttendance = calculateAttendance(
                     </div>
                   </div>
                 )}
-
-                <div className="mt-5 flex items-center justify-between">
-                  <span className="text-xs font-medium text-slate-400 transition group-hover:text-blue-500">
-                    {stat.title === "Result"
-                      ? "View student marksheets"
-                      : "View details"}
-                  </span>
-
-                  <span className="text-xl text-slate-300 transition group-hover:translate-x-1 group-hover:text-blue-500">
-                    →
-                  </span>
-                </div>
+               
               </div>
             </Link>
           ))}
@@ -632,13 +605,6 @@ const studentMonthlyAttendance = calculateAttendance(
                 </div>
               </div>
 
-              <Link
-                href={MARKSHEET_URL}
-                className="mt-6 flex items-center justify-between rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm font-semibold transition hover:bg-white/10"
-              >
-                View Student Marksheet
-                <span>→</span>
-              </Link>
             </div>
           </div>
         </div>
@@ -648,3 +614,7 @@ const studentMonthlyAttendance = calculateAttendance(
 };
 
 export default DashboardPage;
+
+
+
+
