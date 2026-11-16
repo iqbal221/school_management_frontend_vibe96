@@ -226,24 +226,7 @@ const SideBarResponsive = () => {
     </svg>
   );
 
-  const WebsiteIcon = () => (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      fill="none"
-      viewBox="0 0 24 24"
-      strokeWidth={1.7}
-      stroke="currentColor"
-      className="h-5 w-5"
-    >
-      <circle cx="12" cy="12" r="9" />
-      <path strokeLinecap="round" strokeLinejoin="round" d="M3 12h18" />
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        d="M12 3c2.25 2.46 3.5 5.55 3.5 9S14.25 18.54 12 21c-2.25-2.46-3.5-5.55-3.5-9S9.75 5.46 12 3Z"
-      />
-    </svg>
-  );
+ 
 
   const ProfileIcon = () => (
     <svg
@@ -684,62 +667,7 @@ const SideBarResponsive = () => {
                 </details>
               )}
 
-              {/* Website Management */}
-              {UserInfo?.userRole === "super_admin" && (
-                <details
-                  className="group"
-                  open={isActiveRoute(["/website"])}
-                >
-                  <summary className={`${summaryItem} relative overflow-hidden`}>
-                    <div className="absolute inset-0 bg-gradient-to-r from-violet-500/5 to-indigo-500/5 opacity-0 transition-opacity duration-200 group-hover:opacity-100" />
-
-                    <div className="relative flex items-center gap-3">
-                      <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-violet-500/10 text-violet-300 transition group-hover:bg-violet-500/20">
-                        <WebsiteIcon />
-                      </span>
-
-                      <div>
-                        <span className="block">Website</span>
-                        <span className="block text-[9px] font-normal text-slate-500">
-                          Manage public website
-                        </span>
-                      </div>
-                    </div>
-
-                    <span className="relative">
-                      <ArrowIcon />
-                    </span>
-                  </summary>
-
-                  <ul className="mt-1 ml-5 space-y-1 border-l border-violet-500/20 pl-7">
-                    <li>
-                      <Link href="/website/home" onClick={closeSidebar} className={subItem}>
-                        <SubArrow /> Home Page
-                      </Link>
-                    </li>
-                    <li>
-                      <Link href="/website/about" onClick={closeSidebar} className={subItem}>
-                        <SubArrow /> About Page
-                      </Link>
-                    </li>
-                    <li>
-                      <Link href="/website/news" onClick={closeSidebar} className={subItem}>
-                        <SubArrow /> News & Notices
-                      </Link>
-                    </li>
-                    <li>
-                      <Link href="/website/admission" onClick={closeSidebar} className={subItem}>
-                        <SubArrow /> Admission
-                      </Link>
-                    </li>
-                    <li>
-                      <Link href="/website/contact" onClick={closeSidebar} className={subItem}>
-                        <SubArrow /> Contact
-                      </Link>
-                    </li>
-                  </ul>
-                </details>
-              )}
+              
 
               {/* Profile */}
               {(UserInfo?.userRole === "super_admin" ||

@@ -76,12 +76,14 @@ const AddNewOfficialPage = () => {
       (form.elements.namedItem(name) as HTMLInputElement)?.value.trim();
 
     const name = getValue("name");
+    const officialId = getValue("officialId")
     const designation = getValue("designation");
     const email = getValue("email");
     const contact = getValue("contact");
     const address = getValue("address");
 
     if (!name) return toast.error("Please enter official&rsquo;s name");
+    if (!officialId) return toast.error("Please enter official&rsquo;s officialId");
 
     if (!designation) return toast.error("Please enter designation");
 
@@ -98,6 +100,7 @@ const AddNewOfficialPage = () => {
 
     const officialData = {
       name,
+      officialId,
       designation,
       email,
       contact,
@@ -188,6 +191,13 @@ const AddNewOfficialPage = () => {
               />
 
               <InputField
+                label="Official Id"
+                name="officialId"
+                placeholder="Enter official&rsquo;s Id"
+                required
+              />
+
+              <InputField
                 label="Designation"
                 name="designation"
                 placeholder="e.g. Headmaster, Chairman"
@@ -228,7 +238,7 @@ const AddNewOfficialPage = () => {
               </SelectField>
 
               {/* Address - Full Width */}
-              <div className="md:col-span-2">
+              <div className="md:col-span-1">
                 <InputField
                   label="Address"
                   name="address"

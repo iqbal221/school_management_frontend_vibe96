@@ -23,6 +23,17 @@ import { useUsersQuery } from "@/redux/api/userApi";
 
 type LoginRole = "super_admin" | "admin";
 
+const DEMO_CREDENTIALS = {
+  super_admin: {
+    userId: "S-0001",
+    password: "123456"
+  },
+  admin: {
+    userId: "A-0001",
+    password: "123456",
+  },
+};
+
 type User = {
   userId: string;
   role: string;
@@ -50,21 +61,40 @@ const LoginPage = () => {
   });
 
   // Find the user ID for the selected role from database results.
-  const handleRoleChange = (role: LoginRole) => {
-    const matchedUser = users.find(
-      (user) => user.role === role
-    );
 
-    setFormData((prev) => ({
-      ...prev,
+  const handleRoleChange = async (role: LoginRole) => {
+    if (isLoading) return;
+
+    const credentials = DEMO_CREDENTIALS[role];
+
+    setFormData({
       role,
-      userId: matchedUser?.userId ?? "",
-      password: "",
-    }));
+      userId: credentials.userId,
+      password: credentials.password,
+    });
 
-    if (!isUsersLoading && !matchedUser) {
-      toast.info(
-        `No ${role.replace("_", " ")} account found.`
+    setShowPassword(false);
+
+    try {
+      const res = await userLogin({
+        userId: credentials.userId,
+        password: credentials.password,
+        role,
+      }).unwrap();
+
+      if (!res?.accessToken) {
+        toast.error("Login failed. Please try again.");
+        return;
+      }
+
+      storeUserInfo({ accessToken: res.accessToken });
+
+      toast.success("Login successful!");
+      router.replace("/dashboard");
+    } catch (err: any) {
+      toast.error(
+        err?.data?.message ||
+        "Demo login failed. Please check the demo credentials."
       );
     }
   };
@@ -82,7 +112,7 @@ const LoginPage = () => {
       return;
     }
 
-    console.log(userId,password)
+    console.log(userId, password)
 
     try {
       const res = await userLogin({
@@ -103,14 +133,14 @@ const LoginPage = () => {
     } catch (err: any) {
       toast.error(
         err?.data?.message ||
-          "Invalid credentials or unauthorized account."
+        "Invalid credentials or unauthorized account."
       );
     }
   };
 
   return (
     <main className="min-h-screen bg-slate-50 lg:grid lg:grid-cols-2">
-       {/* left visual panel */}
+      {/* left visual panel */}
       <section className="relative hidden overflow-hidden bg-slate-950 lg:block">
         <Image
           src={school_image}
@@ -224,32 +254,33 @@ const LoginPage = () => {
                       description: "Authorized access",
                     },
                   ] as const
-                ).map((item) => {
+                ).map((item: any) => {
                   const selected = formData.role === item.value;
 
                   return (
+
                     <button
                       key={item.value}
                       type="button"
-                      onClick={() =>
-                        handleRoleChange(item.value)
-                      }
+                      onClick={() => handleRoleChange(item.value)}
                       aria-pressed={selected}
-                      disabled={isUsersLoading || isLoading}
-                      className={`rounded-xl border p-3 text-left transition ${
-                        selected
+                      disabled={isLoading}
+                      className={`rounded-xl border p-3 text-left transition ${selected
                           ? "border-indigo-600 bg-indigo-50 ring-2 ring-indigo-100"
                           : "border-slate-200 bg-white hover:border-indigo-300"
-                      } disabled:cursor-not-allowed disabled:opacity-60`}
+                        } disabled:cursor-not-allowed disabled:opacity-60`}
                     >
                       <span className="block text-sm font-semibold text-slate-800">
                         {item.label}
                       </span>
 
                       <span className="mt-1 block text-xs text-slate-500">
-                        {item.description}
+                        {isLoading && selected
+                          ? "Signing in..."
+                          : item.description}
                       </span>
                     </button>
+
                   );
                 })}
               </div>
@@ -293,7 +324,7 @@ const LoginPage = () => {
                 />
               </div>
 
-             
+
             </div>
 
             {/* Password */}
@@ -391,7 +422,7 @@ const LoginPage = () => {
         </div>
       </section>
 
-     
+
     </main>
   );
 };

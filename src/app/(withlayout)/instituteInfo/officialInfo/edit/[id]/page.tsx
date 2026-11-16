@@ -25,6 +25,7 @@ const EditOfficialPage = ({ params }: EditOfficialPageProps) => {
 
   // Get official information
   const { data: officialData, isLoading, isFetching } = useOfficialQuery(id);
+  console.log(officialData)
 
   // Update official
   const [updateOfficial, { isLoading: isUpdating }] =
@@ -65,6 +66,7 @@ const EditOfficialPage = ({ params }: EditOfficialPageProps) => {
     if (!name) {
       return toast.error("Please write name");
     }
+
 
     if (!designation) {
       return toast.error("Please write designation");
