@@ -139,7 +139,7 @@ const LoginPage = () => {
   };
 
   return (
-    <main className="min-h-screen bg-slate-50 lg:grid lg:grid-cols-2">
+    <main id="login" className="min-h-screen bg-slate-50 lg:grid lg:grid-cols-2">
       {/* left visual panel */}
       <section className="relative hidden overflow-hidden bg-slate-950 lg:block">
         <Image

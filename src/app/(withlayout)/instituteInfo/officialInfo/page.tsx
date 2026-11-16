@@ -37,6 +37,8 @@ const OfficialInfoPage = () => {
   const { data, isLoading } = useOfficialsQuery({ ...query });
   const officialsData: any[] = data?.officials || [];
 
+  console.log("official data",officialsData)
+
   const handleDelete = (id: string) => {
     setDeleteOfficial(id);
     setShowDeleteModal(true);
